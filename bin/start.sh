@@ -44,7 +44,7 @@ JAVA_OPTS="-server -Xms2048m -Xmx2048m \
 -XX:+UseParNewGC \
 -XX:ParallelGCThreads=4 \
 -XX:+PrintGCDetails \
--Xloggc:/data/logs/easySearch/jvm_gc.log"
+-Xloggc:/data/logs/fileio/jvm_gc.log"
 
 
 export JAVA_OPTS
@@ -53,4 +53,4 @@ echo "JAVA_HOME  :$JAVA_HOME"
 echo "SERVER_HOME:$SERVER_HOME"
 echo "CLASSPATH  :$CLASSPATH"
 
-exec $java $JAVA_OPTS com.mob.easySearch.EasySearchBoot $* &
+exec $java $JAVA_OPTS com.msun.fileio.Launcher $* &
