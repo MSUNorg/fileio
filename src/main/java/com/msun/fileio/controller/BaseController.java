@@ -17,8 +17,6 @@ import com.lamfire.logger.LoggerFactory;
 import com.msun.fileio.support.FileHelper;
 
 /**
- * com.msun.fileio
- * 
  * @author zxc Jun 14, 2016 3:43:28 PM
  */
 @Component
