@@ -63,16 +63,16 @@ public class Launcher extends SpringBootServletInitializer {
         .consumes(Sets.newHashSet("application/json; charset=UTF-8"))//
         .protocols(Sets.newHashSet("http"))//
         .forCodeGeneration(true)//
-        .select().apis(RequestHandlerSelectors.basePackage("com.mob.fileUpload.controller"))//
+        .select().apis(RequestHandlerSelectors.basePackage("com.msun.fileio.controller"))//
         .paths(PathSelectors.regex("/v1/.*")).build()//
 
         .apiInfo(new ApiInfoBuilder()//
         .contact("zhangxiongcai337@gmail.com")//
-        .title("Upload File")//
-        .description("MOB文件上传服务示例.")//
+        .title("File IO")//
+        .description("MSUN文件上传下载服务示例.")//
         .termsOfServiceUrl("http://mob.com")//
         .license("Apache License Version 2.0")//
-        .licenseUrl("https://github.com/MOBX/FileUpload/blob/master/LICENSE")//
+        .licenseUrl("https://github.com/MSUNorg/fileio/blob/master/LICENSE")//
         .version("1.0").build());
     }
 }
