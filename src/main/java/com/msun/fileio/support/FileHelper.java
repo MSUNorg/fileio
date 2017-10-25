@@ -3,7 +3,10 @@
  */
 package com.msun.fileio.support;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Paths;
 import java.util.UUID;
 
@@ -39,14 +42,18 @@ public class FileHelper {
         if (uploadfile == null || uploadfile.isEmpty()) return "";
         String filename = uploadfile.getOriginalFilename();
         if (StringUtils.isEmpty(filename)) return "";
+
+        OutputStream os = null;
         try {
             String filepath = Paths.get(FILE_PATH, filename + "_" + uuid()).toString();
-            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(filepath)));
-            stream.write(uploadfile.getBytes());
-            stream.close();
+            InputStream instream = uploadfile.getInputStream();
+            os = new FileOutputStream(new File(filepath));
+            IOUtils.copy(instream, os);
             return filepath;
-        } catch (Exception e) {
+        } catch (Throwable e) {
             _.error("upload2save file error!", e);
+        } finally {
+            IOUtils.closeQuietly(os);
         }
         return "";
     }
